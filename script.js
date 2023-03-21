@@ -1,8 +1,20 @@
-const lista = ['kepek/kep1.jpg','kepek/kep2.jpg','kepek/kep3.jpg','kepek/kep4.jpg','kepek/kep5.jpg','kepek/kep6.jpg'];
+const lista = [
+    "kepek/kep1.jpg",
+    "kepek/kep2.jpg",
+    "kepek/kep3.jpg",
+    "kepek/kep4.jpg",
+    "kepek/kep5.jpg",
+    "kepek/kep6.jpg",
+    "kepek/kep1.jpg",
+    "kepek/kep2.jpg",
+    "kepek/kep3.jpg",
+    "kepek/kep4.jpg",
+    "kepek/kep5.jpg",
+    "kepek/kep6.jpg",
+];
 const KIVALASZTOTTKEPEK = []
 let db = 0;
 $(function(){
-    lapKeveres();
     console.log("barmi");
     const felsoSection = $(`#felso`);
     let tartalom = osszeAllit();
@@ -13,6 +25,7 @@ $(function(){
 })
 function kepreKattintas(event){
     const aktKep = event.target;
+    lapKeveres();
     console.log(aktKep.id);
     console.log($(aktKep).attr("id"));
     aktKep.src = lista[aktKep.id]; 
@@ -59,11 +72,11 @@ function osszeAllit(){
 
 }
 function lapKeveres(){
-    for (let index = lista.length-1; inddex >= 0; index--) {
-        let index = parseInt(Math.random()*(index+1));
-        let helyTarto = lista[tarto];
-        helyTarto[tarto] = kepek[index];
-        kepek[index] = helyTarto[tarto];
+    for (let i = lista.length-1; i >= 0; i--) {
+        let index = parseInt(Math.random()*(i+1));
+        let helyTarto = lista[index];
+        lista[index] = lista[i];
+        lista[i] = helyTarto;
     }
 
 
