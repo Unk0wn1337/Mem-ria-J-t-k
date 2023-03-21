@@ -62,8 +62,8 @@ function lapKeveres(){
     for (let index = lista.length-1; inddex >= 0; index--) {
         let index = parseInt(Math.random()*(index+1));
         let helyTarto = lista[tarto];
-        lista[tarto] = kepek[index];
-        kepek[index] = lista[tarto];
+        helyTarto[tarto] = kepek[index];
+        kepek[index] = helyTarto[tarto];
     }
 
 
