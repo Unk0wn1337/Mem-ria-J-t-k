@@ -18,6 +18,9 @@ let minutes = 0;
 let hours = 0;
 let timer;
 
+const PlayerNevek = []
+
+
 const KIVALASZTOTTKEPEK = []
 let db = 0;
 $(function(){
@@ -56,11 +59,11 @@ function visszaFordit(){
     KIVALASZTOTTKEPEK.pop();
 
 }, 1000);
-    
-    
-
-
 }
+    
+    
+
+
 
 
 
@@ -108,6 +111,14 @@ function startStopwatch() {
   
   function stopStopwatch() {
     clearInterval(timer);
+    times.push(
+      (hours ? (hours > 9 ? hours : "0" + hours) : "00") +
+        ":" +
+        (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
+        ":" +
+        (seconds > 9 ? seconds : "0" + seconds)
+    );
+    displayTimes();
   }
   
   function resetStopwatch() {
@@ -115,7 +126,20 @@ function startStopwatch() {
     seconds = 0;
     minutes = 0;
     hours = 0;
+    times = [];
     document.getElementById("stopwatch").innerHTML = "00:00:00";
+    displayTimes();
+  }
+  
+  function displayTimes() {
+    const timesList = document.getElementById("timesList");
+    // timesList ide jon a nev tarolas
+    timesList.innerHTML = "";
+    for (let i = 0; i < times.length; i++) {
+      const li = document.createElement("li");
+      li.innerHTML = times[i];
+      timesList.appendChild(li);
+    }
   }
     
     
