@@ -18,8 +18,9 @@ let minutes = 0;
 let hours = 0;
 let timer;
 
+let name = prompt("Add meg a neved:");
 const PlayerNevek = []
-
+const megtalaltakTombje = []
 
 const KIVALASZTOTTKEPEK = []
 let db = 0;
@@ -129,19 +130,34 @@ function startStopwatch() {
     times = [];
     document.getElementById("stopwatch").innerHTML = "00:00:00";
     displayTimes();
+    
   }
   
-  function displayTimes() {
+  function displayTimes(handleSubmit) {
     const timesList = document.getElementById("timesList");
     // timesList ide jon a nev tarolas
     timesList.innerHTML = "";
     for (let i = 0; i < times.length; i++) {
       const li = document.createElement("li");
-      li.innerHTML = times[i];
+      li.innerHTML = name +""+ times[i];
       timesList.appendChild(li);
     }
   }
+  // function handleSubmit(displayTimes,event) {
+  //   event.preventDefault(); // prevent the default form submission
+  //   const name = document.getElementById("name").value; // get the value of the input field
+  //   console.log("Name:", name); // output the value to the console
     
+  
+  // }
+    function kepMatcheles(){
+        for (let index = 0; index < lista.length; index++) {
+          const element = lista[index];
+          
+        }
+
+
+    }
     
     
     
